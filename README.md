@@ -1,8 +1,20 @@
 # Detecting Skin Infections using CNNs and Transfer Learning 
 
-Aim : To be able to identify the 
+Aim : To be able to identify the different skin conditions that can be contracted in BJJ using deep learning
+
+** Warning ** This repository contains graphic images of different skin infections that can be contracted. If you are squeamish, do not explore the data in this repository.
+
+The objective of this work is to provide a foundation for a mobile app to help people who are reluctant to go to a doctor to identify the skin infections they may have contracted off the mats. 
 
 ## Exploratory Data Analysis
+
+The dataset consists of 812 training images and 212 test images based on our dataset split. Notably, the height and width distributions are identical, indicating that all the images are square in shape. Additionally, all images are in RGB format, which is crucial since color differentiation is a key factor in distinguishing between various infections. For example, staph infections and ringworm can appear similar in terms of texture, but their color differences are essential for accurate identification.
+
+![alt text](image-4.png)
+
+From the EDA, it was observed that the samples of different skin infections were primarily taken from Caucasian skin (click to visualise below). A key consideration for this dataset is the lack of representation of skin diseases across other ethnic groups. It's important to note that the appearance of skin conditions can vary significantly on melanated skin compared to Caucasian skin. This underrepresentation introduces bias in our sample population, potentially limiting the model's ability to accurately learn and recognize the features of skin diseases in people of color. This issue reflects a broader problem within the medical field, where diversity in datasets is often lacking. Moving forward, a crucial recommendation would be to include a wider range of images reflecting skin diseases on different ethnic groups, particularly within public open-source repositories.
+
+[![Censored Image](image-3.png)](image-3.png)
 
 ## Model A : Replication of the AlexNet model using Sequential API 
 ![Figure 1: Diagram of AlexNet model](image.png)
