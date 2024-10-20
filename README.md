@@ -98,3 +98,71 @@ In Experiment 2, the removal of the Dropout layers resulted in a **marked improv
 
 ## Conclusion:
 Based on these findings, it was concluded that while removing Dropout improved accuracy, it was not sufficient to eliminate overfitting. To further optimize performance, a **pre-trained model** will be utilized as a benchmark to compare against these "fresh" models, potentially leading to better results in terms of both accuracy and generalization.
+
+
+# Model B : Transfer Learning using a Pretrained AlexNet model via PyTorch Framework
+
+The code for this experiment can be found in the model_B.ipynb file of the notebooks folder.
+
+In this experiment, the same loss and optimizers were used (CrossEntropy Loss and Adam Optimizer) to enable comparisons to findings from Model A. Additionally, all layers except the output layer were frozen; in this instance, only the classifying layer is trained on the input data it receives.
+
+Given this, we found dramatic improvements in the training loss and training accuracies compared to the AlexNet-like models implemented in TensorFlow. This shows that a model with pretrained weights offers significant advantages in terms of both training efficiency and final performance.
+
+### Key Rationale for Improvement:
+
+1. **Transfer Learning**:  
+   By using a model with pretrained weights, we take advantage of a network that has already learned rich feature representations from a large dataset, typically ImageNet. These pretrained layers can effectively extract general features such as edges, textures, and shapes, which are applicable across different tasks, reducing the need for the model to learn these from scratch.
+
+2. **Frozen Layers**:  
+   Freezing all layers except the final classification layer ensures that the pretrained features are retained and the model focuses only on learning the task-specific classification. This reduces the risk of overfitting, as fewer parameters need to be updated, particularly when working with smaller datasets.
+
+3. **Faster Convergence**:  
+   Since the model is already initialized with weights that are close to an optimal solution for feature extraction, the model converges faster during training. The classifying layer needs to adjust only to the specific task at hand, which explains the dramatic improvements in training loss and accuracy.
+
+4. **Improved Generalization**:  
+   Pretrained models tend to generalize better because they have been trained on diverse datasets. This allows the model to perform well on unseen data by transferring learned representations, leading to better test accuracy.
+
+The use of pretrained weights significantly enhances both the training process and final model performance, especially when limited data is available for training. This shows the power of transfer learning in improving model performance with minimal training time and data.
+
+## Performance Comparison of Different Models
+
+| Model                     | Train Loss | Train Accuracy | Test Loss | Test Accuracy |
+|----------------------------|------------|----------------|-----------|---------------|
+| **Model A with Dropout**    | 0.7845     | 0.7316         | 1.0089    | 0.7639        |
+| **Model A without Dropout** | 0.2163     | 0.9242         | 0.6179    | 0.8841        |
+| **Model B**                 | 0.0502     | 0.9905         | -         | 0.953         |
+
+## Summary:
+
+1. **Model A with Dropout**:
+   - **Training Loss**: 0.7845
+   - **Training Accuracy**: 73.16%
+   - **Test Loss**: 1.0089
+   - **Test Accuracy**: 76.39%
+   - This model performs moderately well, with some overfitting as indicated by the higher test loss compared to training loss.
+
+2. **Model A without Dropout**:
+   - **Training Loss**: 0.2163
+   - **Training Accuracy**: 92.42%
+   - **Test Loss**: 0.6179
+   - **Test Accuracy**: 88.41%
+   - Removing dropout in Model A significantly improved both training and test performance, suggesting that the model generalized better without dropout.
+
+3. **Model B**:
+   - **Training Loss**: 0.0502
+   - **Training Accuracy**: 99.05%
+   - **Test Loss**: Not calculated in workflow
+   - **Test Accuracy**: 95.3%
+   - Model B shows excellent performance on the training set and achieves the highest test accuracy, suggesting that it is the best performer in terms of generalization.
+
+## Conclusion:
+
+- **Model B** is the best-performing model based on the available test accuracy. Showing it is the model the generalizes best for this task.
+
+## Outlook
+
+Going forward, **Model B** will be updated by training it on an extended dataset. Additionally, images of infections on darker skin tones will be included to allow for a more diverse representation of infections across different ethnicities.
+
+Moreover, the codebase for **Model B** will be improved upon as I acquire a better grasp of the PyTorch framework. Lastly, I will explore integrating the model into a mobile app for in situ testing, enabling on-the-go diagnosis and analysis.
+
+
