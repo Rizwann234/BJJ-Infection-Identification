@@ -130,7 +130,7 @@ The use of pretrained weights significantly enhances both the training process a
 |----------------------------|------------|----------------|-----------|---------------|
 | **Model A with Dropout**    | 0.7845     | 0.7316         | 1.0089    | 0.7639        |
 | **Model A without Dropout** | 0.2163     | 0.9242         | 0.6179    | 0.8841        |
-| **Model B**                 | 0.0502     | 0.9905         | -         | 0.953         |
+| **Model B**                 | 0.0502     | 0.9905         | 0.1797         | 0.9487         |
 
 ## Summary:
 
@@ -151,9 +151,9 @@ The use of pretrained weights significantly enhances both the training process a
 3. **Model B**:
    - **Training Loss**: 0.0502
    - **Training Accuracy**: 99.05%
-   - **Test Loss**: Not calculated in workflow
+   - **Test Loss**: 0.1797
    - **Test Accuracy**: 95.3%
-   - Model B shows excellent performance on the training set and achieves the highest test accuracy, suggesting that it is the best performer in terms of generalization.
+   - Model B shows excellent performance on the training set and achieves the highest test performance, suggesting that it is the best performer in terms of generalization.
 
 ## Conclusion:
 
