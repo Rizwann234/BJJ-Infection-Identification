@@ -106,7 +106,9 @@ The code for this experiment can be found in the model_B.ipynb file of the noteb
 
 In this experiment, the same loss and optimizers were used (CrossEntropy Loss and Adam Optimizer) to enable comparisons to findings from Model A. Additionally, all layers except the output layer were frozen; in this instance, only the classifying layer is trained on the input data it receives.
 
-Given this, we found dramatic improvements in the training loss and training accuracies compared to the AlexNet-like models implemented in TensorFlow. This shows that a model with pretrained weights offers significant advantages in terms of both training efficiency and final performance.
+Given this, we found dramatic improvements in the training loss and training accuracies with LESS epochs compared to the AlexNet-like models implemented in TensorFlow. This shows that a model with pretrained weights offers significant advantages in terms of both training efficiency and final performance.
+
+![alt text](image-5.png)
 
 ### Key Rationale for Improvement:
 
